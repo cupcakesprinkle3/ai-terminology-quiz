@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The AI for Everyone Terminology Challenge</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f4; }
+    h1 { color: #333; }
+    .question { margin-bottom: 20px; }
+    .result { font-weight: bold; font-size: 1.2em; margin-top: 30px; }
+    button { padding: 10px 20px; font-size: 1em; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>The AI for Everyone Terminology Challenge</h1>
+
+  <form id="quizForm">
+    <!-- Question 1 -->
+    <div class="question">
+      <p>1. What does "machine learning" mean?</p>
+      <label><input type="radio" name="q1" value="correct"> Machines learning from data to make predictions or decisions</label><br>
+      <label><input type="radio" name="q1" value="wrong"> Teaching machines to follow hard-coded rules</label><br>
+      <label><input type="radio" name="q1" value="wrong"> Giving computers human-like reasoning</label><br>
+      <label><input type="radio" name="q1" value="wrong"> Not sure</label>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+      <p>2. Which of these is an example of a Large Language Model?</p>
+      <label><input type="radio" name="q2" value="wrong"> Excel</label><br>
+      <label><input type="radio" name="q2" value="correct"> GPT-4</label><br>
+      <label><input type="radio" name="q2" value="wrong"> Canva</label><br>
+      <label><input type="radio" name="q2" value="wrong"> Not sure</label>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question">
+      <p>3. Which best describes "computer vision"?</p>
+      <label><input type="radio" name="q3" value="wrong"> AI that reads human emotions</label><br>
+      <label><input type="radio" name="q3" value="correct"> AI that interprets and processes images and video</label><br>
+      <label><input type="radio" name="q3" value="wrong"> AI that controls robotic movement</label><br>
+      <label><input type="radio" name="q3" value="wrong"> Not sure</label>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">
+      <p>4. How familiar are you with the term "reinforcement learning"?</p>
+      <label><input type="radio" name="q4" value="correct"> I could explain it to someone else</label><br>
+      <label><input type="radio" name="q4" value="wrong"> I’ve heard of it, but not sure what it means</label><br>
+      <label><input type="radio" name="q4" value="wrong"> Never heard of it</label>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+      <p>5. What is the purpose of a neural network?</p>
+      <label><input type="radio" name="q5" value="correct"> Simulate brain structure to help machines learn patterns</label><br>
+      <label><input type="radio" name="q5" value="wrong"> Store large amounts of data securely</label><br>
+      <label><input type="radio" name="q5" value="wrong"> Provide wireless internet connectivity</label><br>
+      <label><input type="radio" name="q5" value="wrong"> Not sure</label>
+    </div>
+
+    <button type="button" onclick="calculateScore()">Submit</button>
+  </form>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    function calculateScore() {
+      const form = document.forms["quizForm"];
+      let score = 0;
+      for (let i = 1; i <= 5; i++) {
+        const selected = form[`q${i}`].value;
+        if (selected === "correct") score++;
+      }
+
+      const result = document.getElementById("result");
+      if (score === 5) {
+        result.textContent = `You got ${score}/5 correct — 🧠 You’ve earned the AI Fluent badge!`;
+      } else if (score >= 3) {
+        result.textContent = `You got ${score}/5 correct — 🚀 You’re AI Conversant!`;
+      } else {
+        result.textContent = `You got ${score}/5 correct — 🌱 You're AI Curious. Great start!`;
+      }
+    }
+  </script>
+</body>
+</html>
